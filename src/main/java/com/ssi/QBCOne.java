@@ -21,11 +21,13 @@ public class QBCOne {
 		Session session=sessionFactory.openSession();
 		Criteria criteria=session.createCriteria(Emp.class);
 		
+		
 		//Criterion crt1=Restrictions.eq("sal", 50000);
 		//Criterion crt1=Restrictions.between("sal", 56000, 75000);
 		//criteria.add(crt1);
 		//Order order=Order.desc("sal");
 		//criteria.addOrder(order);
+
 
 		ProjectionList pList=Projections.projectionList();
 		Projection pr1=Projections.property("ename");
