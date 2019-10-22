@@ -7,18 +7,22 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.TableGenerator;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
+@DynamicUpdate
+
 public class Emp {
 	
 	@Id
 	//@GeneratedValue(strategy=GenerationType.AUTO)
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	//@GeneratedValue(strategy=GenerationType.TABLE,generator="cust_gen_table" )
 	//@TableGenerator(name="cust_gen_table",allocationSize=1, table="custcodetable",initialValue=501)
 	
-	@SequenceGenerator(name="empcode_generator",sequenceName="ecode_gen",allocationSize=1, initialValue=1001)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="empcode_generator" )
+	//@SequenceGenerator(name="empcode_generator",sequenceName="ecode_gen",allocationSize=1, initialValue=1001)
+	//@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="empcode_generator" )
 	
 	private int empno;
 	private String ename;

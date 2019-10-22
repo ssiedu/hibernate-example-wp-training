@@ -8,13 +8,23 @@
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/wpdata</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.format_sql">true</property>
         <property name="show_sql">true</property>
-        <!-- <mapping class="com.ssi.Emp"/> -->
-        <!-- <mapping class="com.ssi.Customer"/> -->
+        
+       <!--  <mapping class="com.ssi.Vehicles"/>
+        <mapping class="com.ssi.TwoWheelers"/>
+        <mapping class="com.ssi.FourWheelers"/>
+        <mapping class="com.ssi.ImportedFourWheelers"/> -->
+        
+        <mapping class="com.ssi.Emp"/>
+        <!-- 
+        <mapping class="com.ssi.Customer"/>
         <mapping class="com.ssi.Employee"/>
         <mapping class="com.ssi.Laptop"/>
+        <mapping class="com.ssi.Vehicle"/>
+        <mapping class="com.ssi.Project"/> -->
     </session-factory>
 </hibernate-configuration>

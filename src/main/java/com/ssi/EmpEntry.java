@@ -20,8 +20,11 @@ public class EmpEntry {
 	
 		Transaction transaction=session.beginTransaction();
 		session.save(e1); session.save(e2); session.save(e3);
+		//session.evict(e3);
+		//e3.setSal(65000);
 		transaction.commit();
 		session.close();
+		//e2.setSal(58000);
 		System.out.println("DATA STORED");
 		
 

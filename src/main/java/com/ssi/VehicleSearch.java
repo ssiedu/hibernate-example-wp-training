@@ -5,25 +5,22 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class EmployeeSearch {
+public class VehicleSearch {
 
 	public static void main(String[] args) {
 		
 		
 		SessionFactory sessionFactory=DataUtility.getSessionFactory();
 		Session session=sessionFactory.openSession();
-		Employee emp=session.get(Employee.class, 1);
+		Vehicle vehicle=session.get(Vehicle.class, "R111");
 		
-		System.out.println(emp.getCode());
-		System.out.println(emp.getName());
-		System.out.println(emp.getLaptop());
-		List<Vehicle> vehicles=emp.getVehicles();
-		for(Vehicle vehicle:vehicles) {
-			System.out.println(vehicle);
-		}
+		System.out.println(vehicle.getRegno());
+		System.out.println(vehicle.getVtype());
+		System.out.println(vehicle.getVdesc());
+		Employee employee=vehicle.getEmp();
+		System.out.println(employee);
 		session.close();
 		
 		
 	}
-
 }

@@ -1,8 +1,15 @@
 package com.ssi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+
 
 @Entity
 
@@ -11,8 +18,14 @@ public class Employee {
 	private int code;
 	private String name;
 
-	@OneToOne
+	//@JoinTable(name="EMPLOYEE_LAPTOP", joinColumns = @JoinColumn(name="EMPLOYEE_ID"),inverseJoinColumns = @JoinColumn(name="LAPTOP_ID"))
+	//@JoinColumn(name="lcode")
+	//@OneToOne(fetch=FetchType.EAGER,cascade= {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
+	@OneToOne//(fetch=FetchType.LAZY)
 	private Laptop laptop;
+	
+	@OneToMany(mappedBy="emp")
+	private List<Vehicle> vehicles=new ArrayList<>();
 	
 	public Laptop getLaptop() {
 		return laptop;
@@ -42,7 +55,7 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [code=" + code + ", name=" + name + ", laptop=" + laptop + "]";
+		return "Employee [code=" + code + ", name=" + name + "]";
 	}
 	public Employee(int code, String name, Laptop laptop) {
 		super();
@@ -50,7 +63,16 @@ public class Employee {
 		this.name = name;
 		this.laptop = laptop;
 	}
-	
+	public List<Vehicle> getVehicles() {
+		return vehicles;
+	}
+	public void setVehicles(List<Vehicle> vehicles) {
+		this.vehicles = vehicles;
+	}
+	public Employee(int code) {
+		super();
+		this.code = code;
+	}
 	
 	
 }

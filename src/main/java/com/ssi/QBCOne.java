@@ -20,6 +20,8 @@ public class QBCOne {
 		SessionFactory sessionFactory=config.buildSessionFactory();
 		Session session=sessionFactory.openSession();
 		Criteria criteria=session.createCriteria(Emp.class);
+		criteria.setFirstResult(1);
+		criteria.setMaxResults(10);
 		
 		
 		//Criterion crt1=Restrictions.eq("sal", 50000);

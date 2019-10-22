@@ -14,7 +14,9 @@ public class LaptopSearch {
 		System.out.println(laptop.getLaptopId());
 		System.out.println(laptop.getBrand());
 		System.out.println(laptop.getPrice());
-	
+		System.out.println(laptop.getEmployee());
+		//System.out.println(laptop.getEmployee().getCode());
+		//System.out.println(laptop.getEmployee().getName());
 		session.close();
 		
 	}
